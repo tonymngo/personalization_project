@@ -7,5 +7,5 @@ Objective: Increase conversion rate from product views to sales. <br />
 Comparison of 3 models used for recommender system:
 - Baseline model
 - Neighborhood-based collaborative filtering (KNN)
-- Model-based collaborative filtering with SVD
+- Model-based collaborative filtering with SVD <br />
 Please see part1_submission.ipynb	for code to build and train the models
