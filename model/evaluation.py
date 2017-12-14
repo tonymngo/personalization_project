@@ -19,6 +19,7 @@ class evaluation:
         same idea as in this paper: https://arxiv.org/pdf/1703.02344.pdf
         """
         #Convert holdout dataframe to dictionary
+        holdout_records = holdout.loc[holdout['rating']>=4]
         holdout_records = holdout[['reviewerID','productID']].to_dict('records')
         holdout_dict = defaultdict(list)
         for row in holdout_records:
