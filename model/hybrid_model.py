@@ -66,6 +66,11 @@ class HybridModel:
                     p = 0
 
         return predictionF
+
+    def fill_prediction(prediction, n=7):
+        for user, items in prediction.items():
+            while len(prediction[user]) <n:
+                prediction[user].append(items[-1])
     
     def combine_prediction(sparse_prediction,dense_prediction):
         """
