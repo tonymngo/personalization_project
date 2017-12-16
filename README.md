@@ -11,6 +11,17 @@ Comparison of 3 models used for recommender system:
 <br />
 Please see part1_submission.ipynb	for code to build and train the models
 <br />
+Part 2 <br />
+Objective: Build our own recommender system. <br />
+Recommender system handles sparse and dense data separately:
+- For sparse data, we combine:
+  - Content-based (build our own)
+  - Association rule (build our own)
+- For dense data, we combine:
+  - Model-based CF
+  - KNN
+  - Content-based (build our own)
+<br />
 Reference: <br />
 - R. He, J. McAuley. Modeling the visual evolution of fashion trends with one-class collaborative filtering. WWW, 2016 <br />
 - J. McAuley, C. Targett, J. Shi, A. van den Hengel. Image-based recommendations on styles and substitutes. SIGIR, 2015
