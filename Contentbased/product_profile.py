@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import random
-import Datapreprocessing
+import Contentbased.Datapreprocessing
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
@@ -39,10 +39,10 @@ def recommend(dat, item_id, num):
     return result
 
 
-if __name__ == '__main__':
-    dt = pd.read_csv('data/sample_data.csv', index_col=0)
-    dt1 = pd.read_csv('data/sample_data_meta.csv', index_col=0)
+#if __name__ == '__main__':
+#    dt = pd.read_csv('data/sample_data.csv', index_col=0)
+#    dt1 = pd.read_csv('data/sample_data_meta.csv', index_col=0)
+#
+#    dat_processed = Datapreprocessing.processing(dt, dt1)
 
-    dat_processed = Datapreprocessing.processing(dt, dt1)
-
-    print recommend(dat_processed, item_id='B0004MTMD0', num=6)
+#print recommend(dat_processed, item_id='B0004MTMD0', num=6)

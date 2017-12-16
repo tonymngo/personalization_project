@@ -1,11 +1,66 @@
 import pandas as pd
 import numpy as np
 import random
-import Datapreprocessing
-import product_profile
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
+
+#def product_similarity(data):
+#    tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 3), min_df=0, stop_words='english')
+#    tfidf_matrix = tf.fit_transform(data['title'])
+#    cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
+#
+#    results = {}
+#    for idx, row in data.iterrows():
+#        similar_indices = cosine_similarities[idx].argsort()[:-100:-1]
+#        similar_items = [(cosine_similarities[idx][i], data['productID'][i]) for i in similar_indices]
+#
+#    # First item is the item itself, so remove it.
+#    # Each dictionary entry is like: [(1,2), (3,4)], with each tuple being (score, item_id)
+#        results[row['productID']] = similar_items[1:]
+#
+#    return results
+
+
+def item(dat, id):
+    return dat.loc[dat['productID'] == id]['productID'].tolist()[0]
+
+
+def recommend_item(dat, sim_matrix, item_id, num):
+    
+    final = {}
+    recs = sim_matrix[item_id][:num]
+    for rec in recs:
+        final[item(dat, rec[1])] = str(rec[0])
+
+    result = [key for key in final]
+
+    return result
+
+def processing(sampledata, metadata):
+
+    dat = pd.merge(sampledata, metadata, on=['productID'])
+    dat = dat[['productID', 'title']]
+    dat1 = dat.drop_duplicates()
+    dat1 = dat1.reset_index(drop=True)
+
+    return dat1
 
 def recommendation(dt, dat):
+    #Calculate product similarity
+    tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 3), min_df=0, stop_words='english')
+    tfidf_matrix = tf.fit_transform(dat['title'])
+    cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
 
+    results = {}
+    for idx, row in dat.iterrows():
+        similar_indices = cosine_similarities[idx].argsort()[:-100:-1]
+        similar_items = [(cosine_similarities[idx][i], dat['productID'][i]) for i in similar_indices]
+
+    # First item is the item itself, so remove it.
+    # Each dictionary entry is like: [(1,2), (3,4)], with each tuple being (score, item_id)
+        results[row['productID']] = similar_items[1:]
+
+    #Store reviewerID and productID as dictionary
     dict1 = {}
     for row in dt.itertuples():
         dict1.setdefault(row.reviewerID, [])
@@ -18,12 +73,11 @@ def recommendation(dt, dat):
     for row in dt.itertuples():
         dict2.setdefault(row.reviewerID, [])
         for i in dict1[row.reviewerID]:
-            r = product_profile.recommend(dat1, i, num=6)
+            r = recommend_item(dat1, results, i, num=6)
             for j in r:
                 list2.append(j[1])
-
-            for h in random.sample(list2, 6):
-                dict2[row.reviewerID].append(h)
+        for h in random.sample(list2, 6):
+            dict2[row.reviewerID].append(h)
 
     dict3 = {}
     for row in dt.itertuples():
@@ -35,13 +89,10 @@ def recommendation(dt, dat):
                 dict3[d].append(i)
 
     return dict3
+    
+dt = pd.read_csv('data/sample_data.csv', index_col=0)
+dt1 = pd.read_csv('data/sample_data_meta.csv', index_col=0)
 
+dat = processing(dt, dt1)
 
-if __name__ == '__main__':
-    dt = pd.read_csv('data/sample_data.csv', index_col=0)
-    dt1 = pd.read_csv('data/sample_data_meta.csv', index_col=0)
-
-    dat = Datapreprocessing.processing(dt, dt1)
-
-    reco = recommendation(dt, dat)
-    print reco
+reco = recommendation(dt, dat)

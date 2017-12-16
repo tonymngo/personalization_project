@@ -13,10 +13,10 @@ def processing(sampledata, metadata):
 
     return dat1
 
-if __name__ == '__main__':
-
-    dt = pd.read_csv('data/sample_data.csv', index_col=0)
-    dt1 = pd.read_csv('data/sample_data_meta.csv', index_col=0)
-    print processing(dt,dt1)
+#if __name__ == '__main__':
+#
+#    dt = pd.read_csv('data/sample_data.csv', index_col=0)
+#    dt1 = pd.read_csv('data/sample_data_meta.csv', index_col=0)
+#    print processing(dt,dt1)
 
 

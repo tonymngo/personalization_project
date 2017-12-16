@@ -47,11 +47,14 @@ class HybridModel:
             p = 0
             while len(predictionF[user]) < n:
                 if p == 0:
+
                     if prediction_list[p][user][i] not in predictionF[user]:
                         predictionF[user].append(prediction_list[p][user][i])
                     i += 1
                     p = 1 
+                
                 elif p == 1:
+
                     if prediction_list[p][user][j] not in predictionF[user]:
                         predictionF[user].append(prediction_list[p][user][j])
                     j += 1
@@ -59,6 +62,7 @@ class HybridModel:
                         p = 0
                     else: 
                         p = 2
+
                 elif p == 2:
                     if prediction_list[p][user][k] not in predictionF[user]:
                         predictionF[user].append(prediction_list[p][user][k])
