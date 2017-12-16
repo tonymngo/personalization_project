@@ -13,7 +13,7 @@ Please see part1_submission.ipynb	in folder part I for code to build and train t
 <br />
 <br />
 <p>Part 2 <br />
-Objective: Build our own recommender system. <br />
+Objective: Build our own recommender system.
 <p>Recommender system handles sparse and dense data separately:
 For sparse data, we combine: <br />
   - Content-based (build our own) <br />
