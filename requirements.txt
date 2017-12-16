@@ -3,3 +3,5 @@ surprise
 pyfpgrowth
 ujson
 sklearn
+numpy
+pandas
