@@ -16,12 +16,12 @@ Please see part1_submission.ipynb	in folder part I for code to build and train t
 Objective: Build our own recommender system.
 <p>Recommender system handles sparse and dense data separately:
 For sparse data, we combine: <br />
- + Content-based (build our own) <br />
- + Association rule (build our own) <br />
+ + Content-based model (build our own) <br />
+ + Association rule model (build our own) <br />
 For dense data, we combine: <br />
  + Model-based CF <br />
  + KNN <br />
- + Content-based (build our own)<br />
+ + Content-based model (build our own)<br />
 <br />
 Please see part2_submission.ipynb	in folder part II for code to build and train the models
 <br />
