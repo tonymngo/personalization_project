@@ -9,11 +9,12 @@ Comparison of 3 models used for recommender system:
 - Neighborhood-based collaborative filtering (KNN)
 - Model-based collaborative filtering with SVD
 <br />
-Please see part1_submission.ipynb	for code to build and train the models
+Please see part1_submission.ipynb	in folder part I for code to build and train the models
+<br />
 <br />
 Part 2 <br />
 Objective: Build our own recommender system. <br />
-Recommender system handles sparse and dense data separately:
+Recommender system handles sparse and dense data separately:<br />
 - For sparse data, we combine:
   - Content-based (build our own)
   - Association rule (build our own)
@@ -21,6 +22,8 @@ Recommender system handles sparse and dense data separately:
   - Model-based CF
   - KNN
   - Content-based (build our own)
+<br />
+Please see part2_submission.ipynb	in folder part II for code to build and train the models
 <br />
 Reference: <br />
 - R. He, J. McAuley. Modeling the visual evolution of fashion trends with one-class collaborative filtering. WWW, 2016 <br />
