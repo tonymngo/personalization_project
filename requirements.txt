@@ -1,0 +1,7 @@
+Python 3
+surprise
+pyfpgrowth
+ujson
+sklearn
+numpy
+pandas
