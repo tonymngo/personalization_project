@@ -11,13 +11,6 @@ Comparison of 3 models used for recommender system:
 <br />
 Please see part1_submission.ipynb	in folder part I for code to build and train the models
 
-Math equation:
-
-$\sum_{i=1}^n x = \frac{x(x+1)}{2}$
-
-```python
-print('this is a test')
-```
 
 <p>Part 2 <br />
 Objective: Build our own recommender system.
