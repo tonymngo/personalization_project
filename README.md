@@ -10,8 +10,11 @@ Comparison of 3 models used for recommender system:
  + Model-based collaborative filtering with SVD <br />
 <br />
 Please see part1_submission.ipynb	in folder part I for code to build and train the models
-<br />
-<br />
+
+```python
+print('this is a test')
+```
+
 <p>Part 2 <br />
 Objective: Build our own recommender system.
 <p>Recommender system handles sparse and dense data separately: <br />
