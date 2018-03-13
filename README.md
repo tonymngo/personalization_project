@@ -1,6 +1,3 @@
----
-title: Amazon Recommender System
----
 
 # Personalization project
 
