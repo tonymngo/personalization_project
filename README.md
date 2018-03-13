@@ -32,7 +32,7 @@ Recommender system handles sparse and dense data separately:
     - KNN <br />
     - Content-based model (build our own)
 
-![Model Diagram](/part%20II/model.png)
+![Model Diagram]({{"/part%20II/model.png" | absolute_url}})
 
 Details are in part2_submission.ipynb	in folder Part II.
 
